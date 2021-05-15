@@ -1,0 +1,32 @@
+# Rename this file to terraform.tfvars afte substituting the values
+
+prefix = "cloudops"
+location = "eastus"
+
+#ansible Variables
+
+ansible_inbound_ports = ["22", "8080"]
+ansible_vm_size       = "Standard_B2s"
+
+#Web Variables
+web_inbound_ports = ["80", "8080"]
+web_vm_size       = "Standard_B1s"
+web_node_count    = 2
+
+#Database Variables
+db_inbound_ports = ["3306"]
+db_vm_size       = "Standard_B1s"
+db_node_count    = 2
+
+#Windows VM
+win_node_count = 1
+win_vm_size = "Standard_B1s"
+win_inbound_ports = ["3389", "80", "443"]
+password = ""
+
+
+#common VM variables
+username                 = "azadmin"
+destination_ssh_key_path = "/c/users/<username>/.ssh/id_rsa.pub" /  c:\users\<username>\.ssh\id_rsa.pub
+application_port = "80"
+pubkeypath = "/opt/keys/id_ansible.pub"
