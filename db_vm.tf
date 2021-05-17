@@ -1,10 +1,5 @@
 #Build db nodes
 
-#Fetch the Cloudinit (userdate) file
-
-data "template_file" "db" {
-  template = file("${path.module}/Templates/cloudnint-db.tpl")
-}
 
 resource "azurerm_virtual_machine" "db" {
   count                 = var.db_node_count
