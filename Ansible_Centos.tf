@@ -1,3 +1,8 @@
+data "template_file" "ansiblecentos" {
+  template = file("${path.module}/Templates/cloudnint-centos.tpl")
+}
+
+
 resource "azurerm_virtual_machine" "centos" {
   name                  = "${var.prefix}-ansible-centos"
   location              = azurerm_resource_group.myapp.location
@@ -30,7 +35,7 @@ resource "azurerm_virtual_machine" "centos" {
   os_profile {
     computer_name  = "${var.prefix}ansiblecentos"
     admin_username = var.username
-    custom_data    = data.template_file.ansible.rendered
+    custom_data    = data.template_file.ansiblecentos.rendered
     
   }
 
